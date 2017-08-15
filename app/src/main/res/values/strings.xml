@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PizzaMaker</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="size">Size</string>
+    <string name="small">Small</string>
+    <string name="meduim">Meduim</string>
+    <string name="large">Large</string>
+    <string name="allToppings">Toppings</string>
+    <string name="add_topping">Add Topping</string>
+    <string name="order">Order</string>
+    <string name="go_order">GO ORDER!!!</string>
+    <string name="thank_you">Thank You!!!</string>
+    <string name="thank_you_msg">Your order will be coming shortly...</string>
+
+    <string-array name="topping_names">
+        <item name="cheese">Cheese</item>
+        <item name="pepperoni">Pepperoni</item>
+        <item name="sausage">Sausage</item>
+        <item name="ham">Ham</item>
+        <item name="pineapple">Pineapple</item>
+        <item name="bacon">Bacon</item>
+        <item name="mushrooms">Mushrooms</item>
+        <item name="olives">Olives</item>
+        <item name="peppers">Peppers</item>
+        <item name="spinach">Spinach</item>
+        <item name="chicken">Chicken</item>
+        <item name="onions">Onions</item>
+    </string-array>
+</resources>

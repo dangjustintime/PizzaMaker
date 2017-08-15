@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <array name="toppings_colors">
+        <item name="cheese">#FFEB3B</item>
+        <item name="pepperoni">#F44336</item>
+        <item name="sausage">#795548</item>
+        <item name="ham">#E91E63</item>
+        <item name="pineapple">#FFC107</item>
+        <item name="bacon">#4E342E</item>
+        <item name="mushrooms">#A1887F</item>
+        <item name="olives">#8BC34A</item>
+        <item name="peppers">#FFF176</item>
+        <item name="spinach">#4CAF50</item>
+        <item name="chicken">#D7CCC8</item>
+        <item name="onions">#673AB7</item>
+    </array>
+</resources>
