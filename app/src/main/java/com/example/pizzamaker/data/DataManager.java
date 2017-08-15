@@ -31,6 +31,7 @@ public class DataManager {
 
     public void init(Context context) {
         String[] toppingsNames = context.getResources().getStringArray(R.array.topping_names);
+        String[] imageUrls = context.getResources().getStringArray(R.array.toppings_urls);
         int[] toppingsColors = context.getResources().getIntArray(R.array.toppings_colors);
 
         if (toppingsNames.length != toppingsColors.length) {
@@ -40,8 +41,9 @@ public class DataManager {
 
         for (int i = 0; i < toppingsNames.length; i++) {
             String name = toppingsNames[i];
+            String imageUrl = imageUrls[i];
             int color = toppingsColors[i];
-            Topping topping = new Topping(i, name, color);
+            Topping topping = new Topping(i, name, imageUrl, color);
             allToppings.add(topping);
         }
     }

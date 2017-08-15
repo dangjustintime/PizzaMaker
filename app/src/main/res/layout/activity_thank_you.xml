@@ -40,19 +40,26 @@
             android:id="@+id/text_view_order_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
         <TextView
             android:id="@+id/text_view_order_email"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
         <TextView
             android:id="@+id/text_view_order_phone_number"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
         <TextView
             android:id="@+id/text_view_order_size"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
 
 
     </LinearLayout>

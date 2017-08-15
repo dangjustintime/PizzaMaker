@@ -28,4 +28,18 @@
         <item name="chicken">Chicken</item>
         <item name="onions">Onions</item>
     </string-array>
+    <string-array name="toppings_urls">
+        <item>https://openclipart.org/image/100px/svg_to_png/216864/SmalCheese.svg</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/189439/Pizza-Pepperoni.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/215078/sausage-coloured.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/8649/ham-2.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/227156/pineapple.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/209517/food-bacon.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/175398/mushroom.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/279550/olive.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/169005/pepper.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/209682/food-spinach.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/27980/chicken.png</item>
+        <item>https://openclipart.org/image/100px/svg_to_png/277245/half-a-red-onion.png</item>
+    </string-array>
 </resources>

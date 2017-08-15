@@ -45,7 +45,7 @@ public class ToppingsActivity extends AppCompatActivity {
 
         toppingsRecyclerView = (RecyclerView) findViewById(R.id.recycler_list_view_toppings);
         toppingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        toppingsRecyclerAdapter = new ToppingsListRecyclerAdapter(DataManager.getInstance().getAllToppings(), selectedToppings);
+        toppingsRecyclerAdapter = new ToppingsListRecyclerAdapter(this, DataManager.getInstance().getAllToppings(), selectedToppings);
         toppingsRecyclerView.setAdapter(toppingsRecyclerAdapter);
         toppingsRecyclerView.addItemDecoration(new DividerItemDecoration(this, VERTICAL));
     }

@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.example.pizzamaker.R;
-import com.example.pizzamaker.model.Pizza;
 import com.example.pizzamaker.model.Topping;
 import com.example.pizzamaker.thankYou.ThankYouActivity;
 import com.example.pizzamaker.toppings.ToppingsActivity;
@@ -38,10 +37,6 @@ public class OrderActivity extends AppCompatActivity {
     private Button toppingAddButton;
     private Button orderButton;
 
-    //user's order
-    private
-    @Pizza.Size
-    int pizzaSize;
     private ArrayList<Topping> toppings = new ArrayList<>();
     private ToppingsGridRecyclerAdapter toppingsRecyclerAdapter;
     private String name;
@@ -66,19 +61,16 @@ public class OrderActivity extends AppCompatActivity {
         toppingsRecyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view_toppings);
         toppingAddButton = (Button) findViewById(R.id.button_add_topping);
         orderButton = (Button) findViewById(R.id.button_order);
-
+        size = "Small";
 
         sizeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.radio_button_small) {
-                    pizzaSize = Pizza.SIZE_SMALL;
                     size = "Small";
                 } else if (checkedId == R.id.radio_button_medium) {
-                    pizzaSize = Pizza.SIZE_MEDIUM;
                     size = "Medium";
                 } else if (checkedId == R.id.radio_button_large) {
-                    pizzaSize = Pizza.SIZE_LARGE;
                     size = "Large";
                 }
             }

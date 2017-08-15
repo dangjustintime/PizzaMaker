@@ -1,5 +1,7 @@
 package com.example.pizzamaker.toppings;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.pizzamaker.R;
 import com.example.pizzamaker.model.Topping;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,10 +21,12 @@ import java.util.List;
 
 public class ToppingsListRecyclerAdapter extends RecyclerView.Adapter<ToppingsListRecyclerAdapter.ToppingViewHolder> {
 
+    private Context context;
     private List<Topping> allToppings;
     private List<Topping> selectedToppings;
 
-    public ToppingsListRecyclerAdapter(List<Topping> allToppings, List<Topping> selectedToppings) {
+    public ToppingsListRecyclerAdapter(Context context, List<Topping> allToppings, List<Topping> selectedToppings) {
+        this.context = context;
         this.allToppings = allToppings;
         this.selectedToppings = selectedToppings;
     }
@@ -36,7 +41,13 @@ public class ToppingsListRecyclerAdapter extends RecyclerView.Adapter<ToppingsLi
     public void onBindViewHolder(ToppingViewHolder holder, int position) {
         final Topping topping = allToppings.get(position);
         holder.toppingNameText.setText(topping.getName());
-        holder.toppingImage.setBackgroundColor(topping.getColor());
+
+        Picasso.with(context)
+                .load(topping.getImageUrl())
+                .placeholder(new ColorDrawable(topping.getColor()))
+                .error(new ColorDrawable(topping.getColor()))
+                .into(holder.toppingImage);
+
         if(selectedToppings.contains(topping)) {
             holder.checkedIndicatorImageView.setVisibility(View.VISIBLE);
         } else {

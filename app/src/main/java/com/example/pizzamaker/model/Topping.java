@@ -14,9 +14,10 @@ public class Topping implements Parcelable {
     private String imageUrl;
     private @ColorInt int color;
 
-    public Topping(int id, String name, @ColorInt int color) {
+    public Topping(int id, String name, String imageUrl,@ColorInt int color) {
         this.id = id;
         this.name = name;
+        this.imageUrl = imageUrl;
         this.color = color;
     }
 
@@ -66,6 +67,14 @@ public class Topping implements Parcelable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public @ColorInt int getColor() {
