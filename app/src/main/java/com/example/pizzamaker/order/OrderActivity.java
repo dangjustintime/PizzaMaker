@@ -12,10 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.example.pizzamaker.R;
-import com.example.pizzamaker.model.Order;
 import com.example.pizzamaker.model.Pizza;
 import com.example.pizzamaker.model.Topping;
 import com.example.pizzamaker.thankYou.ThankYouActivity;
@@ -25,7 +23,11 @@ import java.util.ArrayList;
 
 public class OrderActivity extends AppCompatActivity {
 
-    private static final String EXTRA_ORDER = "order";
+    private static final String EXTRA_NAME = "name";
+    private static final String EXTRA_EMAIL = "email";
+    private static final String EXTRA_PHONE_NUMBER = "phoneNumber";
+    private static final String EXTRA_SIZE = "size";
+    private static final String EXTRA_TOPPINGS = "toppings";
     private static final int REQUEST_TOPPINGS = 123;
     private EditText nameEditText;
     private EditText emailEditText;
@@ -45,8 +47,7 @@ public class OrderActivity extends AppCompatActivity {
     private String name;
     private String email;
     private String phoneNumber;
-    private Order order;
-    private Pizza pizza;
+    private String size;
 
 
     @Override
@@ -55,6 +56,7 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Order");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         nameEditText = (EditText) findViewById(R.id.edit_text_name);
@@ -65,20 +67,19 @@ public class OrderActivity extends AppCompatActivity {
         toppingAddButton = (Button) findViewById(R.id.button_add_topping);
         orderButton = (Button) findViewById(R.id.button_order);
 
-        order = getIntent().getParcelableExtra(EXTRA_ORDER);
 
         sizeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.radio_button_small) {
                     pizzaSize = Pizza.SIZE_SMALL;
-                    Toast.makeText(OrderActivity.this, "Clicked Small", Toast.LENGTH_SHORT).show();
+                    size = "Small";
                 } else if (checkedId == R.id.radio_button_medium) {
                     pizzaSize = Pizza.SIZE_MEDIUM;
-                    Toast.makeText(OrderActivity.this, "Clicked Medium", Toast.LENGTH_SHORT).show();
+                    size = "Medium";
                 } else if (checkedId == R.id.radio_button_large) {
                     pizzaSize = Pizza.SIZE_LARGE;
-                    Toast.makeText(OrderActivity.this, "Clicked Large", Toast.LENGTH_SHORT).show();
+                    size = "Large";
                 }
             }
         });
@@ -101,29 +102,19 @@ public class OrderActivity extends AppCompatActivity {
 
         orderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast toast = Toast.makeText(OrderActivity.this, "Clicked Order", Toast.LENGTH_SHORT);
-                toast.show();
                 //get text values
-                name = nameEditText.toString();
-                email = emailEditText.toString();
-                phoneNumber = phoneNumberEditText.toString();
+                name = nameEditText.getText().toString();
+                email = emailEditText.getText().toString();
+                phoneNumber = phoneNumberEditText.getText().toString();
 
-                /*
-                //build pizza
-                pizza = new Pizza(pizzaSize);
-                pizza.setToppings(toppings);
-
-                //build order
-                order = new Order();
-                order.setName(name);
-                order.setEmail(email);
-                order.setPhoneNumber(phoneNumber);
-                order.setPizza(pizza);
-                */
 
                 //build an intent and .putExtra pizza
                 Intent intent = new Intent(OrderActivity.this, ThankYouActivity.class);
-                // intent.putExtra(EXTRA_ORDER, order);
+                intent.putExtra(EXTRA_NAME, name);
+                intent.putExtra(EXTRA_EMAIL, email);
+                intent.putExtra(EXTRA_PHONE_NUMBER, phoneNumber);
+                intent.putExtra(EXTRA_SIZE, size);
+                intent.putExtra(EXTRA_TOPPINGS, toppings);
 
                 //call startActivity() w/intent
                 startActivity(intent);

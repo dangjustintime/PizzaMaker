@@ -35,12 +35,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/order"
-            android:textSize="25dp"/>
+            android:textSize="15dp"/>
+        <TextView
+            android:id="@+id/text_view_order_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/text_view_order_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/text_view_order_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/text_view_order_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
     </LinearLayout>
     <Button
         android:id="@+id/button_finished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text="finished"/>
 </LinearLayout>

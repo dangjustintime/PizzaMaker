@@ -39,6 +39,7 @@ public class ToppingsActivity extends AppCompatActivity {
 
         //actionBar back button
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Toppings");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
