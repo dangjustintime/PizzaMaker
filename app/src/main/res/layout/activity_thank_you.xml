@@ -60,6 +60,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
+        <TextView
+            android:id="@+id/text_view_toppings_thank_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toppings:"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_grid_view_toppings_thank_you"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
 
 
     </LinearLayout>
@@ -67,6 +76,6 @@
         android:id="@+id/button_finished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         android:text="finished"/>
 </LinearLayout>

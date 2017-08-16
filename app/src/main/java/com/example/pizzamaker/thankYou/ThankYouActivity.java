@@ -2,12 +2,15 @@ package com.example.pizzamaker.thankYou;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.pizzamaker.R;
 import com.example.pizzamaker.model.Topping;
+import com.example.pizzamaker.order.ToppingsGridRecyclerAdapter;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,8 @@ public class ThankYouActivity extends AppCompatActivity {
     private TextView emailTextView;
     private TextView phoneNumberTextView;
     private TextView sizeTextView;
+    private RecyclerView toppingsRecyclerView;
+    private ToppingsGridRecyclerAdapter toppingsRecyclerAdapter;
 
     private String name;
     private String email;
@@ -39,12 +44,19 @@ public class ThankYouActivity extends AppCompatActivity {
         name = getIntent().getStringExtra(EXTRA_NAME);
         email = getIntent().getStringExtra(EXTRA_EMAIL);
         phoneNumber = getIntent().getStringExtra(EXTRA_PHONE_NUMBER);
+        phoneNumber = "(" + phoneNumber.substring(0,3) + ") " + phoneNumber.substring(3,6) + "-" + phoneNumber.substring(6);
         size = getIntent().getStringExtra(EXTRA_SIZE);
+        toppings = getIntent().getParcelableArrayListExtra(EXTRA_TOPPINGS);
 
         nameTextView = (TextView) findViewById(R.id.text_view_order_name);
         emailTextView = (TextView) findViewById(R.id.text_view_order_email);
         phoneNumberTextView = (TextView) findViewById(R.id.text_view_order_phone_number);
         sizeTextView = (TextView) findViewById(R.id.text_view_order_size);
+        //recycler view
+        toppingsRecyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view_toppings_thank_you);
+        toppingsRecyclerView.setLayoutManager(new GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false));
+        toppingsRecyclerAdapter = new ToppingsGridRecyclerAdapter(this, toppings);
+        toppingsRecyclerView.setAdapter(toppingsRecyclerAdapter);
 
         nameTextView.setText(name);
         emailTextView.setText(email);

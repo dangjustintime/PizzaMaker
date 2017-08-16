@@ -1,5 +1,7 @@
 package com.example.pizzamaker.order;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.pizzamaker.R;
 import com.example.pizzamaker.model.Topping;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -19,10 +22,12 @@ import java.util.List;
 public class ToppingsGridRecyclerAdapter extends RecyclerView.Adapter<ToppingsGridRecyclerAdapter.ToppingViewHolder> {
 
     //member variables
+    private Context context;
     private List<Topping> selectedToppings;
 
     //constructor
-    public ToppingsGridRecyclerAdapter(List<Topping> selectedToppings) {
+    public ToppingsGridRecyclerAdapter(Context context ,List<Topping> selectedToppings) {
+        this.context = context;
         this.selectedToppings = selectedToppings;
     }
 
@@ -37,6 +42,12 @@ public class ToppingsGridRecyclerAdapter extends RecyclerView.Adapter<ToppingsGr
         Topping topping = selectedToppings.get(position);
         holder.toppingName.setText(topping.getName());
         holder.toppingImage.setBackgroundColor(topping.getColor());
+        //image loader
+        Picasso.with(context)
+                .load(topping.getImageUrl())
+                .placeholder(new ColorDrawable(topping.getColor()))
+                .error(new ColorDrawable(topping.getColor()))
+                .into(holder.toppingImage);
     }
 
     @Override

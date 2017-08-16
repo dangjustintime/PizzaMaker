@@ -58,7 +58,6 @@ public class OrderActivity extends AppCompatActivity {
         emailEditText = (EditText) findViewById(R.id.edit_text_email);
         phoneNumberEditText = (EditText) findViewById(R.id.edit_text_phone);
         sizeRadioGroup = (RadioGroup) findViewById(R.id.radio_group_size);
-        toppingsRecyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view_toppings);
         toppingAddButton = (Button) findViewById(R.id.button_add_topping);
         orderButton = (Button) findViewById(R.id.button_order);
         size = "Small";
@@ -80,7 +79,7 @@ public class OrderActivity extends AppCompatActivity {
         toppingsRecyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view_toppings);
         toppingsRecyclerView.setLayoutManager(new GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false));
         //Recycler View Adapter assignment
-        toppingsRecyclerAdapter = new ToppingsGridRecyclerAdapter(toppings);
+        toppingsRecyclerAdapter = new ToppingsGridRecyclerAdapter(this, toppings);
         toppingsRecyclerView.setAdapter(toppingsRecyclerAdapter);
 
 
