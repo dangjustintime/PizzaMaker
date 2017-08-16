@@ -41,9 +41,9 @@ public class OrderActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
     private RadioGroup sizeRadioGroup;
     private RecyclerView toppingsRecyclerView;
-    boolean nameChanged = false;
-    boolean emailChanged = false;
-    boolean phoneNumberChanged = false;
+    boolean nameChanged;
+    boolean emailChanged;
+    boolean phoneNumberChanged;
 
     private Button toppingAddButton;
     private Button orderButton;
@@ -75,7 +75,9 @@ public class OrderActivity extends AppCompatActivity {
         toppingAddButton = (Button) findViewById(R.id.button_add_topping);
         orderButton = (Button) findViewById(R.id.button_order);
         size = "Small";
-
+        nameChanged = false;
+        emailChanged = false;
+        phoneNumberChanged = false;
 
         //image loader for pizzaImageView
         Picasso.with(this)
@@ -149,19 +151,16 @@ public class OrderActivity extends AppCompatActivity {
 
         orderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //get text values
-                name = nameEditText.getText().toString();
-                email = emailEditText.getText().toString();
-                phoneNumber = phoneNumberEditText.getText().toString();
-
-
-
-
                 if(nameChanged == false || emailChanged == false || phoneNumberChanged == false) {
                     Toast toast = Toast.makeText(OrderActivity.this, "Please fill out all fields", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0,0);
                     toast.show();
                 } else {
+                    //get text values
+                    name = nameEditText.getText().toString();
+                    email = emailEditText.getText().toString();
+                    phoneNumber = phoneNumberEditText.getText().toString();
+
                     //build an intent and .putExtra pizza
                     Intent intent = new Intent(OrderActivity.this, ThankYouActivity.class);
                     intent.putExtra(EXTRA_NAME, name);
