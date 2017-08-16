@@ -9,10 +9,10 @@
     android:gravity="center_horizontal">
     <ImageView
         android:id="@+id/image_view_pizza_oven"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:src="@drawable/pizza_oven"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
     <TextView
         android:id="@+id/text_view_thank_you"
         android:layout_width="wrap_content"
@@ -35,40 +35,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/order"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/text_view_order_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginLeft="10dp" />
         <TextView
             android:id="@+id/text_view_order_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginLeft="10dp" />
         <TextView
             android:id="@+id/text_view_order_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginLeft="10dp" />
         <TextView
             android:id="@+id/text_view_order_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginLeft="10dp" />
         <TextView
             android:id="@+id/text_view_toppings_thank_you"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Toppings:"/>
+            android:text="Toppings:"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_grid_view_toppings_thank_you"
             android:layout_width="wrap_content"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp" />
 
 
     </LinearLayout>

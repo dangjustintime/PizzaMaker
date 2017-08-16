@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PizzaMaker</string>
+    <string name="app_name">Pizza Maker</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
@@ -13,6 +13,7 @@
     <string name="go_order">GO ORDER!!!</string>
     <string name="thank_you">Thank You!!!</string>
     <string name="thank_you_msg">Your order will be coming shortly...</string>
+    <string name="pizza_pic_url">http://www.seriouseats.com/recipes/assets_c/2017/02/20170216-detroit-style-pizza-43-thumb-1500xauto-436479.jpg</string>
 
     <string-array name="topping_names">
         <item name="cheese">Cheese</item>
