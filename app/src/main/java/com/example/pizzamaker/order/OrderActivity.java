@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.pizzamaker.R;
 import com.example.pizzamaker.model.Topping;
@@ -37,11 +38,6 @@ public class OrderActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
     private RadioGroup sizeRadioGroup;
     private RecyclerView toppingsRecyclerView;
-    /*
-    boolean nameChanged;
-    boolean emailChanged;
-    boolean phoneNumberChanged;
-    */
 
     private Button toppingAddButton;
     private Button orderButton;
@@ -73,16 +69,11 @@ public class OrderActivity extends AppCompatActivity {
         toppingAddButton = (Button) findViewById(R.id.button_add_topping);
         orderButton = (Button) findViewById(R.id.button_order);
         size = "Small";
-        /*
-        nameChanged = false;
-        emailChanged = false;
-        phoneNumberChanged = false;
-        */
+
         //image loader for pizzaImageView
         Picasso.with(this)
                 .load(getResources().getString(R.string.pizza_pic_url))
                 .into(pizzaImageView);
-
 
         sizeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -104,42 +95,6 @@ public class OrderActivity extends AppCompatActivity {
         toppingsRecyclerAdapter = new ToppingsGridRecyclerAdapter(this, toppings);
         toppingsRecyclerView.setAdapter(toppingsRecyclerAdapter);
 
-        /*
-        //check if fields are filled
-        nameEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                nameChanged = true;
-            }
-        });
-
-        emailEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                emailChanged = true;
-            }
-        });
-
-        phoneNumberEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                phoneNumberChanged = true;
-            }
-        });
-        */
-
         toppingAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,11 +102,7 @@ public class OrderActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_TOPPINGS);
             }
         });
-        /*
-        if(nameChanged == true || emailChanged == true || phoneNumberChanged == true) {
-            orderButton.setVisibility(Button.VISIBLE);
-        }
-        */
+
         orderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //get text values
@@ -159,17 +110,29 @@ public class OrderActivity extends AppCompatActivity {
                 email = emailEditText.getText().toString();
                 phoneNumber = phoneNumberEditText.getText().toString();
 
-                //build an intent and .putExtra pizza
-                Intent intent = new Intent(OrderActivity.this, ThankYouActivity.class);
-                intent.putExtra(EXTRA_NAME, name);
-                intent.putExtra(EXTRA_EMAIL, email);
-                intent.putExtra(EXTRA_PHONE_NUMBER, phoneNumber);
-                intent.putExtra(EXTRA_SIZE, size);
-                intent.putExtra(EXTRA_TOPPINGS, toppings);
+                if(name.length() > 0 && email.length() > 0  && phoneNumber.length() == 10) {
+                    //build an intent and .putExtra pizza
+                    Intent intent = new Intent(OrderActivity.this, ThankYouActivity.class);
+                    intent.putExtra(EXTRA_NAME, name);
+                    intent.putExtra(EXTRA_EMAIL, email);
+                    intent.putExtra(EXTRA_PHONE_NUMBER, phoneNumber);
+                    intent.putExtra(EXTRA_SIZE, size);
+                    intent.putExtra(EXTRA_TOPPINGS, toppings);
 
-                //call startActivity() w/intent
-                startActivity(intent);
-                finish();
+                    //call startActivity() w/intent
+                    startActivity(intent);
+                    finish();
+                } else {
+                    if (name.length() == 0 || email.length() == 0) {
+                        //required field msg
+                        Toast toast = Toast.makeText(OrderActivity.this, "Required fields not filled", Toast.LENGTH_SHORT);
+                        toast.show();
+                    } else if (phoneNumber.length() != 10) {
+                        Toast toast = Toast.makeText(OrderActivity.this, "Phone Number must be 10 digits", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+
             }
         });
     }

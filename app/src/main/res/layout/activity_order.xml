@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/image_view_pizza_order"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="250dp"
         android:scaleType="center"/>
 
     <EditText
@@ -43,9 +43,11 @@
         android:id="@+id/text_view_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
-        android:text="@string/size" />
+        android:text="@string/size"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/radio_group_size"
@@ -81,9 +83,12 @@
         android:id="@+id/text_view_toppings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
-        android:text="@string/allToppings" />
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+        android:text="@string/allToppings"
+        android:textStyle="bold"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_grid_view_toppings"
