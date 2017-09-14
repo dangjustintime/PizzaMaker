@@ -1,0 +1,2 @@
+# PizzaMaker :pizza:
+This is my first Android Project that I worked on while I was interning at [Planoly](https://www.planoly.com/) from 8/7/2017 to 8/18/2017. This simple app allows the user to create a pizza and "order" it. The app does not actually place an order for the pizza, but is simply an interface for ordering pizza. This is my first Android App so functionality is very limited. :sweat_smile:
